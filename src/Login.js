@@ -3,16 +3,17 @@ import React from 'react';
 
 const Login = (props) =>{
 
-    const props =
+    const 
     {email,
     setEmail,
-    password,setPassword,
+    password,
+    setPassword,
     handleLogin,
-    handleSignup,
+    handleSignUp,
     hasAccount,
     setHasAccount,
     emailError,
-    passwordError};
+    passwordError} = props;
 
     return (
         <section className="login">
@@ -21,19 +22,19 @@ const Login = (props) =>{
             <input type="text" 
                 autofocus required 
                 value = {email}
-                onChange = {(e) =>  (e.target.value)
+                onChange = {(e) =>  setEmail(e.target.value)}
              />
              <p className="errorMsg"> 
                 {emailError}
              </p>
              <label>Password</label>
-             <input type="text" 
+             <input type="password" 
                  required 
-                 value = {Password}
-                 onChange = {(e) => setPassword(e.target.value)
+                 value = {password}
+                 onChange = {(e) => setPassword(e.target.value)}
              />
-             <p className="errormsg"> 
-                {PasswordError}
+             <p className="errorMsg"> 
+                {passwordError}
              </p>
              <div className="btnContainer">
                 {hasAccount ? (
@@ -43,7 +44,7 @@ const Login = (props) =>{
                     </>
                 ):(
                     <>
-                    <button onClick={handleSignup}>Sign Up </button>
+                    <button onClick={handleSignUp}>Sign Up </button>
                     <p>Have an account? <span onClick={()=> setHasAccount(!hasAccount)}>Sign In</span></p>
                     </>
                 )}
@@ -57,6 +58,5 @@ const Login = (props) =>{
 
     
 };
-
 
 export default Login;
